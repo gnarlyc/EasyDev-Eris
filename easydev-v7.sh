@@ -4,7 +4,7 @@
 # Part 2 created mostly by gnarlyc although I just took the commands from the CM site and made them into a script.
 # Thanks to Conap & Workshed for helping to work out the kinks.
 # Thanks to dsixda for script examples in his kitchen
-# Thanks to workshed for the new vendor tree for CM7!!
+# Thanks to workshed for the new CM7 vendor tree for the Eris, and re-editing this script!!
 
 echo "***********     EasyDev -v7 CM Edition     **********"
 echo ""
@@ -102,8 +102,37 @@ cd $KITCHEN_ROOT/EasyDev/CM7/vendor/cyanogen/
 
 # Google Apps option
 case $gapps in
-   *) echo ""; echo "***     Installing Google Apps    ***"; echo ""; ./get-google-files -v gb;;
-   2) echo ""; echo " Ok, no Google Apps will be installed. "; echo "";;  
+   2) echo ""; echo " Ok, no Google Apps will be installed. "; echo "";;
+   *) echo ""; echo "***     Installing Google Apps    ***"; echo ""; ./get-google-files -v gb
+mkdir -p out/target/product/desirec/system/app/
+mkdir -p out/target/product/desirec/system/etc/permissions/
+mkdir -p out/target/product/desirec/system/lib/
+mkdir -p out/target/product/desirec/system/framework/
+cd $KITCHEN_ROOT/EasyDev/CM7/vendor/cyanogen/proprietary/
+cp BooksPhone.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/BooksPhone.apk
+cp CarHomeGoogle.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/CarHomeGoogle.apk
+cp FOTAKill.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/FOTAKill.apk
+cp GenieWidget.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GenieWidget.apk
+cp GoogleBackupTransport.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleBackupTransport.apk
+cp GoogleCalendarSyncAdapter.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleCalendarSyncAdapter.apk
+cp GoogleContactsSyncAdapter.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleContactsSyncAdapter.apk
+cp GoogleFeedback.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleFeedback.apk
+cp GooglePartnerSetup.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GooglePartnerSetup.apk
+cp GoogleQuickSearchBox.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleQuickSearchBox.apk
+cp GoogleServicesFramework.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleServicesFramework.apk
+cp LatinImeTutorial.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/LatinImeTutorial.apk
+cp MarketUpdater.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/MarketUpdater.apk
+cp MediaUploader.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/MediaUploader.apk
+cp NetworkLocation.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/NetworkLocation.apk
+cp OneTimeInitializer.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/OneTimeInitializer.apk
+cp SetupWizard.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/SetupWizard.apk
+cp Talk.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/Talk.apk
+cp Vending.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/Vending.apk
+cp com.google.android.maps.xml $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/etc/permissions/com.google.android.maps.xml
+cp features.xml $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/etc/permissions/features.xml
+cp libvoicesearch.so $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/lib/libvoicesearch.so
+cp com.google.android.maps.jar $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/framework/com.google.android.maps.jar
+;;  
 esac
 
 echo ""
