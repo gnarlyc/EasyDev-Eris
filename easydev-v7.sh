@@ -91,6 +91,8 @@ echo ""
 echo "***    Run unzip-files.sh    ***"
 echo ""
 cd $KITCHEN_ROOT/EasyDev/CM7/device/htc/desirec
+chmod a+x unzip-files.sh
+chmod a+x extract-files.sh
 ./unzip-files.sh
 ./extract-files.sh
 
