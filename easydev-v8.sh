@@ -217,7 +217,7 @@ echo "***    lunch cyangen_$Phone-eng    ***"
 echo ""
 lunch cyanogen_$Phone-eng
 
-make clean option
+#make clean option
 case $clean in
    y) cd $KITCHEN_ROOT/EasyDev/CM7; make clean;;
    *) echo " Ok, no 'make clean' will be done.";;
