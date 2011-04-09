@@ -148,6 +148,12 @@ echo "***    lunch cyangen_desirec-eng    ***"
 echo ""
 lunch cyanogen_desirec-eng
 
+make clean option
+case $clean in
+   y) cd $KITCHEN_ROOT/EasyDev/CM7; make clean;;
+   *) echo " Ok, no 'make clean' will be done.";;
+esac
+
 echo ""
 echo "***    Compiling CM7    ***"
 echo ""
