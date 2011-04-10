@@ -21,7 +21,6 @@ echo ""
 echo "***    Declaring variables    ***"
 echo ""
 export KITCHEN_ROOT=`pwd`
-export $Phone 
 
 echo ""
 echo "***    Setting up the folders    ***"
@@ -32,74 +31,6 @@ if [ ! -d $KITCHEN_ROOT/EasyDev/bin ]
    then
       mkdir $KITCHEN_ROOT/EasyDev/bin
 fi
-
-echo ""
-echo " ***   Choose your phone    ***"
-echo ""
-echo " 1) Eris "
-echo " 2) Incredible "
-echo " 3) Blade "
-echo " 4) Bravo "
-echo " 5) Desire "
-echo " 6) Buzz "
-echo " 7) Click "
-echo " 8) Nexus S "
-echo " 9) G1/MyTouch "
-echo " 10) Encore "
-echo " 11) MyTouch 3G Slide "
-echo " 12) Hero "
-echo " 13) CDMA Hero "
-echo " 14) MyTouch 4G "
-echo " 15) Harmony "
-echo " 16) Legend "
-echo " 17) Leo "
-echo " 18) Liberty "
-echo " 19) Nexus One"
-echo " 20) Passion "
-echo " 21) Droid "
-echo " 22) Speedy "
-echo " 23) SuperSonic "
-echo " 24) Vega "
-echo " 25) Vision "
-echo " 26) Z71 "
-echo " 27) Zero "
-echo " 28) Ace "
-echo ""
-echo ""
-echo -n "Please enter your choice: "
-read phonetype
-
-case $phonetype in
-	1) Phone=desirec;;
-	2) Phone=inc;; 
-  	3) Phone=blade;; 
-  	4) Phone=bravo;; 
- 	5) Phone=bravoc;; 
-  	6) Phone=buzz;; 
-  	7) Phone=click;; 
-  	8) Phone=crespo;; 
-  	9) Phone=dream_sapphire;; 
-  	10) Phone=encore;; 
-  	11) Phone=espresso;; 
-  	12) Phone=hero;; 
-  	13) Phone=heroc;; 
-  	14) Phone=glacier;; 
-  	15) Phone=harmony;; 
-  	16) Phone=legend;; 
-   	17) Phone=leo;; 
-  	18) Phone=liberty;; 
-  	19) Phone=one;; 
-  	20) Phone=passion;; 
-  	21) Phone=sholes;; 
-  	22) Phone=speedy;; 
-  	23) Phone=supersonic;; 
-  	24) Phone=vega;; 
-  	25) Phone=vision;; 
-  	26) Phone=z71;;
-  	27) Phone=zero;;
-	28) Phone=ace;;
-esac
-
 
 echo ""
 echo "***    Checking for existing ROM    ***"
@@ -153,13 +84,13 @@ echo ""
 echo "***    Copying existing ROM to $KITCHEN_ROOT/EasyDev/CM7/ for unzip-files.sh to process    ***"
 echo ""
 cd $KITCHEN_ROOT
-file=$(ls | grep .zip); mv $file $Phone_update.zip
-cp $KITCHEN_ROOT/$Phone_update.zip $KITCHEN_ROOT/EasyDev/CM7/$Phone_update.zip
+file=$(ls | grep .zip); mv $file desirec_update.zip
+cp $KITCHEN_ROOT/desirec_update.zip $KITCHEN_ROOT/EasyDev/CM7/desirec_update.zip
 
 echo ""
 echo "***    Run unzip-files.sh    ***"
 echo ""
-cd $KITCHEN_ROOT/EasyDev/CM7/device/htc/$Phone
+cd $KITCHEN_ROOT/EasyDev/CM7/device/htc/desirec
 chmod a+x unzip-files.sh
 chmod a+x extract-files.sh
 ./unzip-files.sh
@@ -175,34 +106,34 @@ cd $KITCHEN_ROOT/EasyDev/CM7/vendor/cyanogen/
 case $gapps in
    2) echo ""; echo " Ok, no Google Apps will be installed. "; echo "";;
    *) echo ""; echo "***     Installing Google Apps    ***"; echo ""; ./get-google-files -v gb
-mkdir -p out/target/product/$Phone/system/app/
-mkdir -p out/target/product/$Phone/system/etc/permissions/
-mkdir -p out/target/product/$Phone/system/lib/
-mkdir -p out/target/product/$Phone/system/framework/
+mkdir -p out/target/product/desirec/system/app/
+mkdir -p out/target/product/desirec/system/etc/permissions/
+mkdir -p out/target/product/desirec/system/lib/
+mkdir -p out/target/product/desirec/system/framework/
 cd $KITCHEN_ROOT/EasyDev/CM7/vendor/cyanogen/proprietary/
-cp BooksPhone.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/BooksPhone.apk
-cp CarHomeGoogle.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/CarHomeGoogle.apk
-cp FOTAKill.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/FOTAKill.apk
-cp GenieWidget.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GenieWidget.apk
-cp GoogleBackupTransport.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GoogleBackupTransport.apk
-cp GoogleCalendarSyncAdapter.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GoogleCalendarSyncAdapter.apk
-cp GoogleContactsSyncAdapter.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GoogleContactsSyncAdapter.apk
-cp GoogleFeedback.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GoogleFeedback.apk
-cp GooglePartnerSetup.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GooglePartnerSetup.apk
-cp GoogleQuickSearchBox.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GoogleQuickSearchBox.apk
-cp GoogleServicesFramework.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/GoogleServicesFramework.apk
-cp LatinImeTutorial.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/LatinImeTutorial.apk
-cp MarketUpdater.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/MarketUpdater.apk
-cp MediaUploader.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/MediaUploader.apk
-cp NetworkLocation.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/NetworkLocation.apk
-cp OneTimeInitializer.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/OneTimeInitializer.apk
-cp SetupWizard.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/SetupWizard.apk
-cp Talk.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/Talk.apk
-cp Vending.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/app/Vending.apk
-cp com.google.android.maps.xml $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/etc/permissions/com.google.android.maps.xml
-cp features.xml $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/etc/permissions/features.xml
-cp libvoicesearch.so $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/lib/libvoicesearch.so
-cp com.google.android.maps.jar $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone/system/framework/com.google.android.maps.jar
+cp BooksPhone.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/BooksPhone.apk
+cp CarHomeGoogle.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/CarHomeGoogle.apk
+cp FOTAKill.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/FOTAKill.apk
+cp GenieWidget.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GenieWidget.apk
+cp GoogleBackupTransport.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleBackupTransport.apk
+cp GoogleCalendarSyncAdapter.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleCalendarSyncAdapter.apk
+cp GoogleContactsSyncAdapter.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleContactsSyncAdapter.apk
+cp GoogleFeedback.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleFeedback.apk
+cp GooglePartnerSetup.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GooglePartnerSetup.apk
+cp GoogleQuickSearchBox.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleQuickSearchBox.apk
+cp GoogleServicesFramework.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/GoogleServicesFramework.apk
+cp LatinImeTutorial.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/LatinImeTutorial.apk
+cp MarketUpdater.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/MarketUpdater.apk
+cp MediaUploader.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/MediaUploader.apk
+cp NetworkLocation.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/NetworkLocation.apk
+cp OneTimeInitializer.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/OneTimeInitializer.apk
+cp SetupWizard.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/SetupWizard.apk
+cp Talk.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/Talk.apk
+cp Vending.apk $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/app/Vending.apk
+cp com.google.android.maps.xml $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/etc/permissions/com.google.android.maps.xml
+cp features.xml $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/etc/permissions/features.xml
+cp libvoicesearch.so $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/lib/libvoicesearch.so
+cp com.google.android.maps.jar $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec/system/framework/com.google.android.maps.jar
 ;;  
 esac
 
@@ -213,9 +144,9 @@ cd $KITCHEN_ROOT/EasyDev/CM7
 . build/envsetup.sh
 
 echo ""
-echo "***    lunch cyangen_$Phone-eng    ***"
+echo "***    lunch cyangen_desirec-eng    ***"
 echo ""
-lunch cyanogen_$Phone-eng
+lunch cyanogen_desirec-eng
 
 make clean option
 case $clean in
@@ -230,5 +161,5 @@ cd $KITCHEN_ROOT/EasyDev/CM7
 mka bacon
 
 echo ""
-echo "Your ROM should be in $KITCHEN_ROOT/EasyDev/CM7/out/target/product/$Phone "
+echo "Your ROM should be in $KITCHEN_ROOT/EasyDev/CM7/out/target/product/desirec "
 echo ""
