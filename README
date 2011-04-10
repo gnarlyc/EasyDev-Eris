@@ -5,8 +5,12 @@ This script is here to make building a fresh CyanogenMod ROM easier.
 QUICK START:
 
 cd into your EasyDev-Eris directory and run:
+Plug in your phone
 
 ./easydev-v7.sh
+
+or ./easydev-v8.sh
+
 
 -------------------------------
 
