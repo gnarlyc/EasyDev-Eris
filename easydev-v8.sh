@@ -13,9 +13,12 @@ echo "***********            Team ADX            **********"
 echo ""
 echo "***    Installing dependencies    ***"
 echo ""
+sudo apt-get install python-software-properties
 sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
 sudo apt-get update
-sudo apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush schedtool g++-multilib lib32z1-dev lib32ncurses5-dev lib32readline5-dev gcc-4.3-multilib g++-4.3-multilib
+sudo apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip
+sudo apt-get install curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush schedtool g++-multilib 
+sudo apt-get install lib32z1-dev lib32ncurses5-dev lib32readline5-dev gcc-4.3-multilib g++-4.3-multilib
 
 echo ""
 echo "***    Declaring variables    ***"
