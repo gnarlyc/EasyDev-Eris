@@ -21,7 +21,7 @@ apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2
 apt-get install curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush schedtool g++-multilib 
 apt-get install lib32z1-dev lib32ncurses5-dev lib32readline5-dev gcc-4.3-multilib g++-4.3-multilib
 
-VER = java -version 2>&1 | grep "java version" | awk '{print $3}' | tr -d \" | awk '{split($0, array, ".")} END{print array[2]}'
+export VER=java -version 2>&1 | grep "java version" | awk '{print $3}' | tr -d \" | awk '{split($0, array, ".")} END{print array[2]}'
 if [ $VER >= 6 ]
    then
       echo ""
@@ -168,7 +168,7 @@ echo ""
 echo "***    Copying existing ROM to $KITCHEN_ROOT/EasyDev/CM7/ for unzip-files.sh to process    ***"
 echo ""
 cd $KITCHEN_ROOT
-file=$(ls | grep .zip); mv $file $Phone_update.zip
+export file=$(ls | grep .zip); mv $file $Phone"_update.zip"
 cp $KITCHEN_ROOT/$Phone_update.zip $KITCHEN_ROOT/EasyDev/CM7/$Phone_update.zip
 
 echo ""
